@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { parseEnv } from '../../../src/config/env.js';
 
 describe('parseEnv', () => {
@@ -39,8 +39,6 @@ describe('parseEnv', () => {
   });
 
   it('rejects an invalid LOG_LEVEL', () => {
-    expect(() =>
-      parseEnv({ NODE_ENV: 'development', LOG_LEVEL: 'verbose' as never }),
-    ).toThrow();
+    expect(() => parseEnv({ NODE_ENV: 'development', LOG_LEVEL: 'verbose' as never })).toThrow();
   });
 });

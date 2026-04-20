@@ -1,6 +1,6 @@
-import type { Request, Response, NextFunction } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import type { CheckHealthUseCase } from '../../../core/application/health/CheckHealthUseCase.js';
-import { HealthResponseSchema, type HealthResponse } from '../schemas/healthSchemas.js';
+import { type HealthResponse, HealthResponseSchema } from '../schemas/healthSchemas.js';
 
 export class HealthController {
   constructor(private readonly useCase: CheckHealthUseCase) {}

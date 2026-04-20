@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import type { Request, Response, NextFunction } from 'express';
+import type { NextFunction, Request, Response } from 'express';
+import { describe, expect, it } from 'vitest';
 import { HealthController } from '../../../../../src/adapters/http/controllers/HealthController.js';
-import { HealthStatus } from '../../../../../src/core/domain/health/HealthStatus.js';
 import { CheckHealthUseCase } from '../../../../../src/core/application/health/CheckHealthUseCase.js';
+import { HealthStatus } from '../../../../../src/core/domain/health/HealthStatus.js';
 import type { LoggerPort } from '../../../../../src/core/ports/LoggerPort.js';
 
 class SilentLogger implements LoggerPort {

@@ -1,16 +1,24 @@
-import { describe, it, expect } from 'vitest';
-import type { Request, Response, NextFunction } from 'express';
-import { z, ZodError } from 'zod';
+import type { NextFunction, Request, Response } from 'express';
+import { describe, expect, it } from 'vitest';
+import { ZodError, z } from 'zod';
 import { createErrorHandler } from '../../../../../src/adapters/http/middleware/errorHandler.js';
 import { DomainError } from '../../../../../src/core/domain/errors/DomainError.js';
 import type { LoggerPort } from '../../../../../src/core/ports/LoggerPort.js';
 
 class RecordingLogger implements LoggerPort {
   readonly calls: Array<{ level: string; message: string }> = [];
-  info(m: string) { this.calls.push({ level: 'info', message: m }); }
-  warn(m: string) { this.calls.push({ level: 'warn', message: m }); }
-  error(m: string) { this.calls.push({ level: 'error', message: m }); }
-  debug(m: string) { this.calls.push({ level: 'debug', message: m }); }
+  info(m: string) {
+    this.calls.push({ level: 'info', message: m });
+  }
+  warn(m: string) {
+    this.calls.push({ level: 'warn', message: m });
+  }
+  error(m: string) {
+    this.calls.push({ level: 'error', message: m });
+  }
+  debug(m: string) {
+    this.calls.push({ level: 'debug', message: m });
+  }
 }
 
 class NotFoundError extends DomainError {

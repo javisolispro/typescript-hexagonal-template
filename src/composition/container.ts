@@ -1,10 +1,10 @@
-import type { Env } from '../config/env.js';
-import { PinoLoggerAdapter } from '../adapters/logging/PinoLoggerAdapter.js';
-import { CheckHealthUseCase } from '../core/application/health/CheckHealthUseCase.js';
 import { HealthController } from '../adapters/http/controllers/HealthController.js';
-import { createHealthRouter } from '../adapters/http/routes/healthRoutes.js';
 import { HttpServer } from '../adapters/http/HttpServer.js';
 import { buildOpenApiDocument } from '../adapters/http/openapi/openApiDocument.js';
+import { createHealthRouter } from '../adapters/http/routes/healthRoutes.js';
+import { PinoLoggerAdapter } from '../adapters/logging/PinoLoggerAdapter.js';
+import type { Env } from '../config/env.js';
+import { CheckHealthUseCase } from '../core/application/health/CheckHealthUseCase.js';
 // Importing the schemas module registers OpenAPI paths as a side effect.
 import '../adapters/http/schemas/healthSchemas.js';
 

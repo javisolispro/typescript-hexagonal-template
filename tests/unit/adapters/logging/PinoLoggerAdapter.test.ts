@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { Writable } from 'node:stream';
+import { describe, expect, it } from 'vitest';
 import { PinoLoggerAdapter } from '../../../../src/adapters/logging/PinoLoggerAdapter.js';
 
 function captureStream(): Writable & { lines: string[] } {

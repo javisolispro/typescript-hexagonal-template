@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { CheckHealthUseCase } from '../../../../../src/core/application/health/CheckHealthUseCase.js';
-import type { LoggerPort, LogContext } from '../../../../../src/core/ports/LoggerPort.js';
+import type { LogContext, LoggerPort } from '../../../../../src/core/ports/LoggerPort.js';
 
 class FakeLogger implements LoggerPort {
   readonly calls: Array<{

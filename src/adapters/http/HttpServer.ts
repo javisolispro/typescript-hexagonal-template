@@ -1,5 +1,5 @@
-import express, { type Application, type Router } from 'express';
 import type { Server } from 'node:http';
+import express, { type Application, type Router } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import type { LoggerPort } from '../../core/ports/LoggerPort.js';
 import { createErrorHandler } from './middleware/errorHandler.js';

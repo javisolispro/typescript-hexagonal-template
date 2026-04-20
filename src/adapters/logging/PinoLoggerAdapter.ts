@@ -1,4 +1,4 @@
-import { pino, type Logger as PinoLogger, type DestinationStream } from 'pino';
+import { type DestinationStream, type Logger as PinoLogger, pino } from 'pino';
 import type { LogContext, LoggerPort } from '../../core/ports/LoggerPort.js';
 
 export interface PinoLoggerOptions {

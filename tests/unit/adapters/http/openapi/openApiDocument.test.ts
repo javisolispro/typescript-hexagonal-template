@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { buildOpenApiDocument } from '../../../../../src/adapters/http/openapi/openApiDocument.js';
 // Importing the schemas module registers the /health path as a side effect.
 import '../../../../../src/adapters/http/schemas/healthSchemas.js';

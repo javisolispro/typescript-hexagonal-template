@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { HealthResponseSchema } from '../../../../../src/adapters/http/schemas/healthSchemas.js';
 
 describe('HealthResponseSchema', () => {

@@ -1,6 +1,6 @@
-import { loadEnvOrExit } from './config/env.js';
-import { buildContainer } from './composition/container.js';
 import { PinoLoggerAdapter } from './adapters/logging/PinoLoggerAdapter.js';
+import { buildContainer } from './composition/container.js';
+import { loadEnvOrExit } from './config/env.js';
 
 async function bootstrap(): Promise<void> {
   const env = loadEnvOrExit();
