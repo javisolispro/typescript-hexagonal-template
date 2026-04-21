@@ -11,6 +11,8 @@ describe('integration: GET /health (wired through real container)', () => {
       NODE_ENV: 'test',
       PORT: 0,
       LOG_LEVEL: 'silent',
+      REQRES_BASE_URL: 'https://reqres.in',
+      REQRES_API_KEY: 'test-key',
     });
     app = httpServer.expressApp;
   });
