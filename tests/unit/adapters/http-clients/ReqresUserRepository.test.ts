@@ -50,9 +50,7 @@ const validBody = {
 
 describe('ReqresUserRepository', () => {
   it('maps reqres response data into domain Users with camelCase fields', async () => {
-    const { fn } = makeFetch(
-      new Response(JSON.stringify(validBody), { status: 200 }),
-    );
+    const { fn } = makeFetch(new Response(JSON.stringify(validBody), { status: 200 }));
     const sut = new ReqresUserRepository(
       { baseUrl: 'https://reqres.in', apiKey: 'key', fetch: fn },
       new NoopLogger(),
@@ -70,10 +68,8 @@ describe('ReqresUserRepository', () => {
     });
   });
 
-  it('calls GET ${baseUrl}/api/users with the x-api-key header', async () => {
-    const { fn, calls } = makeFetch(
-      new Response(JSON.stringify(validBody), { status: 200 }),
-    );
+  it(`calls GET \${baseUrl}/api/users with the x-api-key header`, async () => {
+    const { fn, calls } = makeFetch(new Response(JSON.stringify(validBody), { status: 200 }));
     const sut = new ReqresUserRepository(
       { baseUrl: 'https://reqres.example', apiKey: 'secret-key', fetch: fn },
       new NoopLogger(),
