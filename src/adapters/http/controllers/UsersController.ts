@@ -1,9 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 import type { ListUsersUseCase } from '../../../core/application/users/ListUsersUseCase.js';
-import {
-  type ListUsersResponse,
-  ListUsersResponseSchema,
-} from '../schemas/usersSchemas.js';
+import { type ListUsersResponse, ListUsersResponseSchema } from '../schemas/usersSchemas.js';
 
 export class UsersController {
   constructor(private readonly useCase: ListUsersUseCase) {}

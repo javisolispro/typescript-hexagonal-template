@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ListUsersUseCase } from '../../../../../src/core/application/users/ListUsersUseCase.js';
 import { User } from '../../../../../src/core/domain/users/User.js';
-import type { UserRepositoryPort } from '../../../../../src/core/ports/UserRepositoryPort.js';
 import type { LogContext, LoggerPort } from '../../../../../src/core/ports/LoggerPort.js';
+import type { UserRepositoryPort } from '../../../../../src/core/ports/UserRepositoryPort.js';
 
 class FakeLogger implements LoggerPort {
   readonly calls: Array<{

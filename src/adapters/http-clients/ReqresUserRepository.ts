@@ -51,8 +51,6 @@ export class ReqresUserRepository implements UserRepositoryPort {
       throw err;
     }
 
-    return parsed.data.map(
-      (u) => new User(u.id, u.email, u.first_name, u.last_name, u.avatar),
-    );
+    return parsed.data.map((u) => new User(u.id, u.email, u.first_name, u.last_name, u.avatar));
   }
 }

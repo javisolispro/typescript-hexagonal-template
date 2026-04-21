@@ -37,11 +37,19 @@ describe('parseEnv', () => {
   });
 
   it('rejects a non-numeric PORT', () => {
-    expect(() => parseEnv({ NODE_ENV: 'development', PORT: 'abc', REQRES_API_KEY: 'test-key' })).toThrow();
+    expect(() =>
+      parseEnv({ NODE_ENV: 'development', PORT: 'abc', REQRES_API_KEY: 'test-key' }),
+    ).toThrow();
   });
 
   it('rejects an invalid LOG_LEVEL', () => {
-    expect(() => parseEnv({ NODE_ENV: 'development', LOG_LEVEL: 'verbose' as never, REQRES_API_KEY: 'test-key' })).toThrow();
+    expect(() =>
+      parseEnv({
+        NODE_ENV: 'development',
+        LOG_LEVEL: 'verbose' as never,
+        REQRES_API_KEY: 'test-key',
+      }),
+    ).toThrow();
   });
 
   it('requires REQRES_API_KEY', () => {
