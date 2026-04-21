@@ -4,6 +4,8 @@ const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']),
   PORT: z.coerce.number().int().min(0).max(65535).default(3000),
   LOG_LEVEL: z.enum(['silent', 'trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),
+  REQRES_BASE_URL: z.string().url().default('https://reqres.in'),
+  REQRES_API_KEY: z.string().min(1),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
