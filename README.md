@@ -95,6 +95,15 @@ The distinction between "driving" adapters (those that call into the core — e.
 e.g. `adapters/logging`) is implicit: it's determined by the relationship between the
 adapter and the core, not by folder structure.
 
+### Driven HTTP adapters
+
+Outbound HTTP integrations live under `src/adapters/http-clients/`. The
+`ReqresUserRepository` — wired at `GET /users` — is the canonical example: a
+port in core (`UserRepositoryPort`) is implemented via native `fetch`, with a
+Zod schema (`reqresSchemas.ts`) validating the upstream response at the
+boundary. Schema drift or non-2xx responses surface as `UpstreamHttpError`,
+which the error middleware maps to a 500 by default.
+
 ## Adding a new feature
 
 Recipe the template is designed to make mechanical:
@@ -132,11 +141,13 @@ as the project matures.
 
 ## Environment variables
 
-| Var         | Required | Default | Allowed                                                          |
-| ----------- | -------- | ------- | ---------------------------------------------------------------- |
-| `NODE_ENV`  | yes      | —       | `development` \| `test` \| `production`                          |
-| `PORT`      | no       | `3000`  | any integer in `0..65535`                                        |
-| `LOG_LEVEL` | no       | `info`  | `silent` \| `trace` \| `debug` \| `info` \| `warn` \| `error` \| `fatal` |
+| Var                | Required | Default              | Allowed                                                                  |
+| ------------------ | -------- | -------------------- | ------------------------------------------------------------------------ |
+| `NODE_ENV`         | yes      | —                    | `development` \| `test` \| `production`                                  |
+| `PORT`             | no       | `3000`               | any integer in `0..65535`                                                |
+| `LOG_LEVEL`        | no       | `info`               | `silent` \| `trace` \| `debug` \| `info` \| `warn` \| `error` \| `fatal` |
+| `REQRES_BASE_URL`  | no       | `https://reqres.in`  | any valid URL                                                            |
+| `REQRES_API_KEY`   | yes      | —                    | non-empty string (reqres.in API key)                                     |
 
 Invalid env crashes the process with a human-readable error at boot.
 
